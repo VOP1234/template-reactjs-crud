@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { FiPlusSquare } from 'react-icons/fi';
-import { Container } from './styles';
+import { FiPlusSquare } from 'react-icons/fi'
+import { Container } from './styles'
 
-import Logo from '../../assets/logo.svg';
+import Logo from '../../assets/logo.svg'
 
 interface IHeaderProps {
-  openModal: () => void;
+  openModal: () => void
 }
 
 const Header: React.FC<IHeaderProps> = ({ openModal }) => (
@@ -19,6 +19,7 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => (
             type="button"
             onClick={() => {
               /* TODO OPEN MODAL */
+              openModal()
             }}
           >
             <div className="text">Novo Prato</div>
@@ -30,6 +31,6 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => (
       </nav>
     </header>
   </Container>
-);
+)
 
-export default Header;
+export default Header
