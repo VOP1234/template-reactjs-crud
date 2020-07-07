@@ -70,16 +70,23 @@ const Dashboard: React.FC = () => {
     // TODO UPDATE A FOOD PLATE ON THE API
     await api.put(`/foods/${editingFood.id}`, food)
 
-    const allFoods = await api.get('/foods')
-    setFoods(allFoods.data)
+    const findIndex = foods.findIndex(
+      indexFood => indexFood.id === editingFood.id,
+    )
+
+    foods[findIndex].name = food.name
+    foods[findIndex].price = food.price
+    foods[findIndex].description = food.description
+    setFoods(foods)
   }
 
   async function handleDeleteFood(id: number): Promise<void> {
     // TODO DELETE A FOOD PLATE FROM THE API
     await api.delete(`/foods/${id}`)
 
-    const allFoods = await api.get('/foods')
-    setFoods(allFoods.data)
+    foods.filter(food => food.id !== id)
+
+    setFoods(foods)
   }
 
   function toggleModal(): void {
